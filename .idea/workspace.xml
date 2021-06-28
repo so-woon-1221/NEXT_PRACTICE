@@ -2,38 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e34299e8-965b-49c5-8364-a5d0346a20fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/next-todo-2/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next-todo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next-todo/.next/cache/webpack/server-development/0.pack_" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next-todo/.next/cache/webpack/server-development/1.pack_" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next-todo/.next/cache/webpack/server-development/index.pack_" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next-todo/pages/_app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next-todo/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/build-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/cache/webpack/client-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo/.next/cache/webpack/client-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/cache/webpack/client-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo/.next/cache/webpack/client-development/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/cache/webpack/server-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo/.next/cache/webpack/server-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/cache/webpack/server-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo/.next/cache/webpack/server-development/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/react-loadable-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/server/pages-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/server/pages/_app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/server/pages/_document.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/server/pages/_error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/server/webpack-runtime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/chunks/amp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/chunks/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/chunks/node_modules_next_dist_client_dev_noop_js.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/chunks/pages/_app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/chunks/pages/_error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/chunks/polyfills.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/chunks/react-refresh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/chunks/webpack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/development/_buildManifest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/.next/static/development/_ssgManifest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-todo/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/next.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/next.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-todo-2/components/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next-todo-2/components/TodoList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +16,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1uZG5BIa4sDE4GUCIrWCU8lTqO7" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -53,13 +25,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/next-todo-2" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/next-todo-2/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/next-todo-2/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -76,6 +55,8 @@
       <option name="presentableId" value="Default" />
       <updated>1624865511814</updated>
       <workItem from="1624865514070" duration="185000" />
+      <workItem from="1624892634389" duration="552000" />
+      <workItem from="1624893217272" duration="48000" />
     </task>
     <servers />
   </component>
@@ -92,8 +73,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
