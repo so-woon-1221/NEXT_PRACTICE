@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    word-break: keep-all;
+}
+
+.register-input {
+    @apply relative w-full h-12 pr-10 pl-3 border border-gray-300 rounded-2xl outline-none
+}
+
+.register-svg {
+    @apply absolute right-4 top-4
+}
+
+.register-password-svg {
+    @apply cursor-pointer
+}
+
+.select-custom {
+    -webkit-appearance: none;
+    background-image: url('/static/svg/down.svg');
+    background-position: right 11px center;
+    background-repeat: no-repeat;
+}

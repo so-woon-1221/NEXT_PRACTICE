@@ -1,4 +1,5 @@
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
+import { getTodosApi } from "../lib/api/todo";
 import TodoList from "../components/TodoList";
 import { TodoType } from "../types/todo";
 
@@ -9,6 +10,17 @@ const todos: TodoType[] = [
 
 const index: NextPage = () => {
   return <TodoList todos={todos} />;
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const { data } = await getTodosApi();
+    console.log(data);
+    return { props: {} };
+  } catch (e) {
+    console.log(e);
+    return { props: {} };
+  }
 };
 
 export default index;
