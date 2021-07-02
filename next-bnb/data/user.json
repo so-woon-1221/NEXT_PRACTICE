@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "email": "janus112@adfs.com",
+    "firstname": "qwer",
+    "lastname": "asdf",
+    "password": "$2a$08$7gSBQc/8VfIkISwZs94fROB24tJGAsWVC7CQQst0UEu/94iacldUi",
+    "birthday": "2002-07-31T15:00:00.000Z",
+    "profileImage": "/static/time.png"
+  },
+  {
+    "id": 2,
+    "email": "janus112@adfs.com",
+    "firstname": "qwer",
+    "lastname": "asdf",
+    "password": "$2a$08$WS1z1W6Xk41tCnN3.aSAQOh2PtW52duA9uc2A59zqwEJaEYAtjroq",
+    "birthday": "2021-10-20T00:00:00.000Z",
+    "profileImage": "/static/time.png"
+  },
+  {
+    "id": 3,
+    "email": "123@asdf.com",
+    "firstname": "123",
+    "lastname": "123",
+    "password": "$2a$08$o9bP4tpW0jBphDMEmOfdL.1MT6MowPljVGETw9xGRU28SMhVoyYxi",
+    "birthday": "2021-10-20T00:00:00.000Z",
+    "profileImage": "/static/time.png"
+  },
+  {
+    "id": 4,
+    "email": "1233@asdf.com",
+    "firstname": "123",
+    "lastname": "123",
+    "password": "$2a$08$aK.l9CUqAOkxL.QDCzC0QuAypwVd195PkEllVwYDmRYhEkB149OzW",
+    "birthday": "2021-10-20T00:00:00.000Z",
+    "profileImage": "/static/time.png"
+  },
+  {
+    "id": 5,
+    "email": "j123@0to1partners.com",
+    "firstname": "asdf",
+    "lastname": "asdf",
+    "password": "$2a$08$Fl5G6SSzZp9uQcBM13.PvueHM0Emgt3M/jqudTZZVTMXj1itdKzTO",
+    "birthday": "2021-10-20T00:00:00.000Z",
+    "profileImage": "/static/time.png"
+  },
+  {
+    "id": 6,
+    "email": "qwer@adsf.com",
+    "firstname": "qwer",
+    "lastname": "qewr",
+    "password": "$2a$08$mjwNDy4/s322TQo6o9CYDOhySA/gqUHWBBnNV7ojd0jcrZ8CgSFRm",
+    "birthday": "2021-10-20T00:00:00.000Z",
+    "profileImage": "/static/time.png"
+  }
+]

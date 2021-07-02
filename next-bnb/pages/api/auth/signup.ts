@@ -1,5 +1,6 @@
 import { NextApiResponse, NextApiRequest } from "next";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 import Data from "../../../lib/data";
 import { StoredUserType } from "../../../types/user";
 
@@ -36,7 +37,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       profileImage: "/static/time.png",
     };
 
-    Data.user.write([...users, newUser]);
+    await Data.user.write([...users, newUser]);
+
+    const token = jwt.sign(String(newUser.id), process.env.JWT_SECRET!);
+
+    res.setHeader(
+      "Set-Cookie",
+      `access_token=${token}; path=/; expires=${new Date(
+        Date.now() + 60 * 60 * 24 * 1000 * 3,
+      )}; httponly`,
+    );
+
+    const newUserWithoutPassword: Partial<Pick<StoredUserType, "password">> =
+      newUser;
+
+    delete newUserWithoutPassword.password;
+    res.statusCode = 200;
+    return res.send(newUser);
   }
   res.statusCode = 405;
+  return res.end();
 };
