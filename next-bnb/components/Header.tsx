@@ -11,6 +11,9 @@ import HamburgerIcon from "../public/static/svg/hamburger.svg";
 import { authActions } from "../store/auth";
 import AuthModal from "./auth/AuthModal";
 import palette from "../styles/palette";
+import { logoutAPI } from "../lib/api/auth";
+import { userActions } from "../store/user";
+import HeaderAuths from "./auth/HeaderAuths";
 
 const Container = styled.div`
   position: sticky;
@@ -100,6 +103,15 @@ const Header: React.FC = () => {
 
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
+  const logout = async () => {
+    try {
+      await logoutAPI();
+      dispatch(userActions.inituser());
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
   return (
     <Container>
       <Link href="/">
@@ -108,30 +120,7 @@ const Header: React.FC = () => {
           <AirbnbLogoTextIcon />
         </a>
       </Link>
-      {!user.isLogged && (
-        <div className="header-auth-buttons">
-          <button
-            type="button"
-            className="header-sign-up-button"
-            onClick={() => {
-              dispatch(authActions.setAuthMode("signup"));
-              openModal();
-            }}
-          >
-            회원가입
-          </button>
-          <button
-            type="button"
-            className="header-login-button"
-            onClick={() => {
-              dispatch(authActions.setAuthMode("login"));
-              openModal();
-            }}
-          >
-            로그인
-          </button>
-        </div>
-      )}
+      {!user.isLogged && <HeaderAuths />}
       {user.isLogged && (
         <OutsideClickHandler
           onOutsideClick={() => {
@@ -165,7 +154,7 @@ const Header: React.FC = () => {
                 </a>
               </Link>
               <div className="header-usermenu-divider" />
-              <li role="presentation" onClick={() => {}}>
+              <li role="presentation" onClick={logout}>
                 로그아웃
               </li>
             </ul>
