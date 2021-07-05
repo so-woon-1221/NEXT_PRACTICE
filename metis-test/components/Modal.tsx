@@ -26,12 +26,12 @@ const Modal: React.FC<Props> = ({ isOpen, setIsOpen }) => {
     >
       <button
         type="button"
-        className="bg-white absolute top-3 right-10 p-4 px-8 bg-opacity-100 rounded-3xl"
+        className="bg-white absolute top-2 right-16 p-4 px-6 bg-opacity-100 rounded-full"
         onClick={() => setIsOpen(false)}
       >
         x
       </button>
-      <form className="bg-white rounded-2xl p-10 text-left w-1/3">
+      <form className="bg-white rounded-2xl p-10 text-left w-1/3 resize border">
         <h3 className="mb-4 font-bold text-xl">로그인</h3>
         <input
           type="text"
@@ -45,7 +45,7 @@ const Modal: React.FC<Props> = ({ isOpen, setIsOpen }) => {
         />
         <button
           type="button"
-          className="bg-green-300 w-full rounded-md py-3"
+          className="bg-green-300 w-full rounded-md py-3 ring ring-inset ring-gray-600"
           onClick={() => {
             setIsOpen(false);
           }}
