@@ -31,6 +31,7 @@ const Container = styled.div<{ iconExist: boolean }>`
 `;
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  // eslint-disable-next-line no-undef
   icon?: JSX.Element;
   isValid?: boolean;
   validateMode?: boolean;

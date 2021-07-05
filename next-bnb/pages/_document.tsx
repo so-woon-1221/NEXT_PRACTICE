@@ -34,6 +34,7 @@ class MyDocument extends Document {
     }
   }
 
+  // eslint-disable-next-line no-undef
   render(): JSX.Element {
     return (
       <Html>

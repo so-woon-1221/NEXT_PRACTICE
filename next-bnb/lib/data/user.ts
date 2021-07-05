@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from "fs";
+// eslint-disable-next-line import/extensions,import/no-unresolved
 import { StoredUserType } from "../../types/user";
 
 const getList = () => {

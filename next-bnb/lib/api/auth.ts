@@ -1,4 +1,5 @@
 import axios from "axios";
+// eslint-disable-next-line import/extensions,import/no-unresolved
 import { UserType } from "../../types/user";
 
 interface SignUpApiBody {

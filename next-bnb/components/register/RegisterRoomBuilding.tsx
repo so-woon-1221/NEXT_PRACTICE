@@ -34,7 +34,9 @@ const RegisterRoomBuilding: React.FC = () => {
     (state) => state.registerRoom.largeBuildingType,
   );
 
+  // eslint-disable-next-line consistent-return
   const detailBuildingOptions = useMemo(() => {
+    // eslint-disable-next-line default-case
     switch (largeBuildingType) {
       case "아파트": {
         const { apartmentBuildingTypelist } = require("../../lib/staticData");

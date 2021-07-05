@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from "react";
 import styled, { css } from "styled-components";
 import { useSelector } from "../../store";
@@ -131,6 +132,7 @@ const Selector: React.FC<IProps> = ({
       validateMode={useValidation && validateMode}
       type={type}
     >
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label>
         {label && <span>{label}</span>}
         <select {...props}>

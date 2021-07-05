@@ -2,6 +2,7 @@ import { NextApiResponse, NextApiRequest } from "next";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import Data from "../../../lib/data";
+// eslint-disable-next-line import/extensions,import/no-unresolved
 import { StoredUserType } from "../../../types/user";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

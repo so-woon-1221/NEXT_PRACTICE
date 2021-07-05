@@ -8,7 +8,6 @@ import AirbnbLogoTextIcon from "../public/static/svg/logo/logo_text.svg";
 import useModal from "../hooks/useModal";
 import { useSelector } from "../store";
 import HamburgerIcon from "../public/static/svg/hamburger.svg";
-import { authActions } from "../store/auth";
 import AuthModal from "./auth/AuthModal";
 import palette from "../styles/palette";
 import { logoutAPI } from "../lib/api/auth";
@@ -115,6 +114,7 @@ const Header: React.FC = () => {
   return (
     <Container>
       <Link href="/">
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a className="header-logo-wrapper">
           <AirbnbLogo className="header-logo" />
           <AirbnbLogoTextIcon />
@@ -131,6 +131,7 @@ const Header: React.FC = () => {
         >
           <button
             className="flex items-center h-12 pr-2 px border-0 rounded bg-white cursor-pointer outline-none hover:shadow-md"
+            type="button"
             onClick={() => setIsUserMenuOpened(true)}
           >
             <HamburgerIcon />
@@ -144,6 +145,7 @@ const Header: React.FC = () => {
             <ul className="header-usermenu">
               <li>숙소관리</li>
               <Link href="/room/register/building">
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a
                   role="presentation"
                   onClick={() => {
