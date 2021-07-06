@@ -20,7 +20,7 @@ a {
 }
 
 .show {
-  @apply top-20 opacity-100
+  @apply top-20 opacity-100 visible
 }
 
 #navMenu {
@@ -31,15 +31,39 @@ a {
   transition: all 0.4s ease-out;
 }
 
+
 .open {
   @apply left-0
 }
 
-.modal {
-  @apply scale-100
+.top-menu {
+  @apply top-20 visible
 }
 
-#modal {
-  /*transition: all 0.3s ease-out;*/
-  z-index: 9999;
+.left-menu {
+  @apply w-64 md:block
+}
+
+#top-menu, #left-menu, #menu-wrapper {
+  transition: all 0.4s ease-out;
+}
+
+@layer utilities {
+  @variants responsive {
+    .width-screen-64 {
+      width: calc(100% - 16rem)
+    }
+
+    .h-screen-64 {
+      min-height: calc(100vh - 2.5rem - 1rem);
+    }
+
+    .left-68 {
+      left: 17rem
+    }
+
+    .w-128 {
+      width: 32rem;
+    }
+  }
 }

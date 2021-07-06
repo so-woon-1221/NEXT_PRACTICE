@@ -1,9 +1,13 @@
 import React from "react";
+import { AtSymbolIcon } from "@heroicons/react/solid";
 
 const Footer = () => (
-  <div className="w-full h-10 absolute bottom-0 bg-purple-300 flex items-center justify-center">
-    <span className="text-2xl">Footer</span>
-  </div>
+  <footer className="w-full h-10 flex items-center justify-center">
+    <div className="w-4 h-4 flex items-center justify-center mr-3">
+      <AtSymbolIcon className="w-full h-full" />
+    </div>
+    {/* <span className="text-2xl">Footer</span> */}
+  </footer>
 );
 
 export default Footer;
