@@ -3,12 +3,14 @@ import type { AppProps } from "next/app";
 /* eslint-disable-next-line import/extensions */
 // import Header from "../components/Header";
 /* eslint-disable-next-line import/extensions */
+import { QueryClient, QueryClientProvider } from "react-query";
 import Menu from "../components/Menu";
 /* eslint-disable-next-line import/extensions */
 import Footer from "../components/footer";
 import { wrapper } from "../store";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
   return (
     // <div>
     //   <Header />
@@ -19,18 +21,20 @@ function MyApp({ Component, pageProps }: AppProps) {
     //   <Footer />
     //   <div id="modal-div" />
     // </div>
-    <div>
-      <div className="flex md:flex-row flex-col">
-        <div className="md:w-64 w-full md:pt-4 md:pl-4 bg-white md:z-10">
-          <Menu />
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <div className="flex md:flex-row flex-col">
+          <div className="md:w-64 w-full md:pt-4 md:pl-4 bg-white md:z-10">
+            <Menu />
+          </div>
+          <div className="md:width-screen-64 w-full -z-20 md:z-0">
+            <Component {...pageProps} />
+          </div>
         </div>
-        <div className="md:width-screen-64 w-full -z-20 md:z-0">
-          <Component {...pageProps} />
-        </div>
+        <Footer />
+        <div id="modal-div" />
       </div>
-      <Footer />
-      <div id="modal-div" />
-    </div>
+    </QueryClientProvider>
   );
 }
 
