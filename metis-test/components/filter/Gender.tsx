@@ -17,10 +17,13 @@ const Gender: React.FC<Props> = ({ gender, setGender }) => {
   }, [gender]);
 
   return (
-    <div className="flex flex-grow py-2 pl-2 items-center" id="genderFilter">
-      <span className="font-bold mr-4 border-r border-black w-20">GENDER</span>
+    <div
+      className="flex flex-grow py-2 pl-2 items-center space-x-3"
+      id="genderFilter"
+    >
+      <span className="font-bold border-r border-black w-20">GENDER</span>
       <button
-        className="mr-3 hover:bg-gray-200 hover:shadow-lg rounded py-1.5 px-3"
+        className="hover:bg-gray-200 hover:shadow-lg rounded py-1.5 px-3"
         type="button"
         onClick={onClickButton}
         data-value="all"
@@ -28,7 +31,7 @@ const Gender: React.FC<Props> = ({ gender, setGender }) => {
         all
       </button>
       <button
-        className="mr-3 hover:text-red-500 rounded py-1.5 px-3"
+        className="hover:text-red-500 rounded py-1.5 px-3"
         type="button"
         data-value="남성"
         onClick={onClickButton}
@@ -36,7 +39,7 @@ const Gender: React.FC<Props> = ({ gender, setGender }) => {
         male
       </button>
       <button
-        className="mr-3 hover:bg-gray-200 rounded py-1.5 px-3"
+        className="hover:bg-gray-200 rounded py-1.5 px-3"
         type="button"
         data-value="여성"
         onClick={onClickButton}

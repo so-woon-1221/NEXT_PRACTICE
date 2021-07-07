@@ -18,12 +18,15 @@ const Area: React.FC<Props> = ({ area, setArea }) => {
   }, [area]);
 
   return (
-    <div className="flex flex-grow py-2 pl-2 items-center" id="areaFilter">
-      <span className="font-bold mr-4 border-r  border-black w-20">AREA</span>
+    <div
+      className="flex flex-grow py-2 pl-2 items-center space-x-3"
+      id="areaFilter"
+    >
+      <span className="font-bold border-r  border-black w-20">AREA</span>
       {areaList.map((area, i) => (
         <button
           key={i}
-          className="mr-3 hover:bg-gray-200 rounded py-1.5 px-3"
+          className="hover:bg-gray-200 rounded py-1.5 px-3"
           type="button"
           data-value={`${area}`}
           onClick={onClickButton}
