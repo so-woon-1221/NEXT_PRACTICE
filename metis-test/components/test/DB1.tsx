@@ -64,7 +64,7 @@ const DB1: React.FC = () => {
       {status === "success" && data && data?.length < 1 && (
         <div>데이터없음</div>
       )}
-      {error && <div>오류</div>}
+      {error && <div>데이터를 불러올 수 없습니다. 오류가 발생했습니다.</div>}
     </div>
   );
 };
