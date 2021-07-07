@@ -22,6 +22,7 @@ class MyDocument extends Document {
         styles: <>{initialProps.styles}</>,
       };
     } finally {
+      const a = 1;
     }
   }
 
