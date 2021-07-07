@@ -4,23 +4,14 @@ import type { AppProps } from "next/app";
 // import Header from "../components/Header";
 /* eslint-disable-next-line import/extensions */
 import { QueryClient, QueryClientProvider } from "react-query";
-import Menu from "../components/Menu";
+import Menu from "../components/common/Menu";
 /* eslint-disable-next-line import/extensions */
-import Footer from "../components/footer";
+import Footer from "../components/common/footer";
 import { wrapper } from "../store";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const queryClient = new QueryClient();
   return (
-    // <div>
-    //   <Header />
-    //   <Menu />
-    //   <div className="absolute top-20 bottom-10 md:left-64 md:width-screen-64 w-full -z-10">
-    //     <Component {...pageProps} />
-    //   </div>
-    //   <Footer />
-    //   <div id="modal-div" />
-    // </div>
     <QueryClientProvider client={queryClient}>
       <div>
         <div className="flex md:flex-row flex-col">
@@ -30,12 +21,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           <div className="md:width-screen-64 w-full -z-20 md:z-0">
             <Component {...pageProps} />
           </div>
+          <div id="modal-div" />
         </div>
         <Footer />
-        <div id="modal-div" />
       </div>
     </QueryClientProvider>
   );
-}
+};
 
-export default wrapper.withRedux(MyApp);
+export default wrapper.withRedux(App);

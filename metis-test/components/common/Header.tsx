@@ -3,8 +3,8 @@ import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-// eslint-disable-next-line import/extensions
-import useModal from "../hooks/useModal";
+// eslint-disable-next-line import/extensions, import/no-unresolved
+import useModal from "../../hooks/useModal";
 // eslint-disable-next-line import/extensions
 import LoginModal from "./LoginModal";
 

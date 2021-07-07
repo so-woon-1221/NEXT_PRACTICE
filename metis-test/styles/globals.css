@@ -67,3 +67,16 @@ a {
     }
   }
 }
+
+#modal-child {
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+#modal-child-wrapper {
+  top: 0;
+  left: 0;
+  /* z-index: 200; */
+  background-color: rgba(0,0,0,0.2);
+}

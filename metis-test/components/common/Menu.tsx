@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LoginIcon, MenuIcon, ChevronDownIcon } from "@heroicons/react/solid";
 // eslint-disable-next-line import/extensions
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
-import useModal from "../hooks/useModal";
+import { useDispatch } from "react-redux";
+import useModal from "../../hooks/useModal";
 // eslint-disable-next-line import/extensions
 import LoginModal from "./LoginModal";
+import { useSelector } from "../../store";
+import { modalActions } from "../../store/modal";
 
 const Menu = () => {
-  const { ModalPortal, openModal } = useModal();
+  const { open } = useSelector((state) => state.modal);
+  const dispatch = useDispatch();
+  const { ModalPortal } = useModal();
+
+  useEffect(() => {
+    dispatch(modalActions.setOpen(false));
+  }, []);
   return (
     <>
       <div
@@ -164,7 +173,9 @@ const Menu = () => {
             <div className="md:w-full md:mb-4 absolute right-4 md:block md:relative md:right-0 top-4 md:top-0">
               <div
                 className="md:w-full w-auto h-12 md:bg-gray-300 py-2 rounded-lg bg-opacity-75 md:mt-3 p-2 flex items-center hover:shadow hover:bg-gray-400 font-bold md:ml-0 ml-2 cursor-pointer"
-                onClick={() => openModal()}
+                onClick={() => {
+                  dispatch(modalActions.setOpen(true));
+                }}
                 role="presentation"
               >
                 <div className="w-8 h-8 md:mr-2">

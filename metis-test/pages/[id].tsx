@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import DB1 from "../components/test/DB1";
 
 const TestPage = () => {
   const router = useRouter();
   const { query } = router;
 
-  useEffect(() => {
-    console.log(query.id);
-  }, []);
   return (
     <>
       <Head>
@@ -19,8 +17,9 @@ const TestPage = () => {
           <h1 className="font-extrabold text-3xl border-b-2 p-2 mb-4">
             {query.id}
           </h1>
-          <div className="w-full pl-2 border h-48">sub menu</div>
-          <div className="flex-grow border-2">Detail</div>
+          <div className="flex-grow border-2">
+            {query.id === "menu1" && <DB1 />}
+          </div>
         </div>
       </div>
     </>

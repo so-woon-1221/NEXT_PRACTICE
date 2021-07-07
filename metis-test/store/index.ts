@@ -5,9 +5,11 @@ import {
   useSelector as useReduxSelector,
 } from "react-redux";
 import modal from "./modal";
+import common from "./common";
 
 const rootReducer = combineReducers({
   modal: modal.reducer,
+  common: common.reducer,
 });
 
 const reducer = (state: any, action: any) => {
