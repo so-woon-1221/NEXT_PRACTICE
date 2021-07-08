@@ -48,6 +48,7 @@ const DB2: React.FC = () => {
     if (table) {
       html2canvas(table).then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
+        // eslint-disable-next-line new-cap
         const doc = new jsPDF();
         doc.addImage(imgData, "PNG", 10, 10, 200, 200);
         doc.save("data.pdf");
