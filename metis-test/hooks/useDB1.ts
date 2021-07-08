@@ -11,7 +11,7 @@ const getData = async (
   product: string,
 ): Promise<Test[]> => {
   const { data } = await axios.get(
-    `http://localhost:8080/api/METIS/MT1?gender=${gender}&age=${age}&area=${area}&type=${type}&product=${product}`,
+    `http://34.136.232.169:8080/api/METIS/MT1?gender=${gender}&age=${age}&area=${area}&type=${type}&product=${product}`,
   );
   return data;
 };
