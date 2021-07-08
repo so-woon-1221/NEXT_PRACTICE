@@ -25,7 +25,7 @@ const TestPage = ({ data }) => {
           </h1>
           <div className="flex-grow">
             {query.id === "menu1" && <DB1 />}
-            {/*{query.id === "menu2" && <DB2 data={data} />}*/}
+            {query.id === "menu2" && <DB2 />}
             {query.id === "menu3" && <DB3 />}
           </div>
         </div>
