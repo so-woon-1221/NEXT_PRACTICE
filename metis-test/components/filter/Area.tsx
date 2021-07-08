@@ -18,11 +18,8 @@ const Area: React.FC<Props> = ({ area, setArea }) => {
   }, [area]);
 
   return (
-    <div
-      className="flex flex-grow py-2 pl-2 items-center space-x-3"
-      id="areaFilter"
-    >
-      <span className="font-bold border-r  border-black w-20">AREA</span>
+    <div className="flex py-2 pl-2 items-center space-x-3" id="areaFilter">
+      <span className="font-bold border-r border-black w-20">AREA</span>
       {areaList.map((area, i) => (
         <button
           key={i}

@@ -65,7 +65,7 @@ a {
     }
 
     .h-screen-64 {
-      min-height: calc(100vh - 2.5rem - 1rem);
+      min-height: calc(100vh - 2.5rem - 2rem);
     }
 
     .left-68 {
@@ -74,6 +74,11 @@ a {
 
     .w-128 {
       width: 32rem;
+    }
+
+    .w-200 {
+      min-width: 470px;
+      max-width: 1200px;
     }
   }
 }

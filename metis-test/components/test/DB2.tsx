@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 interface Props {
   data: any;
@@ -7,7 +6,17 @@ interface Props {
 // @ts-ignore
 const DB2: React.FC<Props> = ({ data }) => {
   const a = 1;
-  return <div>{data[0].category}</div>;
+  return (
+    <div>
+      {data.map((d: { category: string; nmonth: string }, i: number) => {
+        return (
+          <div key={i}>
+            {d.category} {d.nmonth}
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default DB2;

@@ -1,8 +1,5 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-/* eslint-disable-next-line import/extensions */
-// import Header from "../components/Header";
-/* eslint-disable-next-line import/extensions */
 import { QueryClient, QueryClientProvider } from "react-query";
 import Menu from "../components/common/Menu";
 /* eslint-disable-next-line import/extensions */
