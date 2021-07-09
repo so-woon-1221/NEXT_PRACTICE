@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <div className="md:w-64 w-full md:pt-4 md:pl-4 bg-white md:z-10">
             <Menu />
           </div>
-          <div className="md:width-screen-64 w-full -z-20 md:z-0">
+          <div className="md:width-screen-64 w-full md:z-0">
             <Component {...pageProps} />
           </div>
           <div id="modal-div" />

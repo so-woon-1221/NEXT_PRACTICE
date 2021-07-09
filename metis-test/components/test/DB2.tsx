@@ -3,6 +3,8 @@ import { useTable, HeaderGroup } from "react-table";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import html2canvas from "html2canvas";
+// import { font } from "../../public/font";
+import { font } from "../../public/nanum";
 
 const dataList = [
   { id: 1, name: "a", email: "a@email.com" },
@@ -46,13 +48,25 @@ const DB2: React.FC = () => {
     // eslint-disable-next-line new-cap
     const table = document.getElementById("my-table");
     if (table) {
-      html2canvas(table).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        // eslint-disable-next-line new-cap
-        const doc = new jsPDF();
-        doc.addImage(imgData, "PNG", 10, 10, 200, 200);
-        doc.save("data.pdf");
+      // html2canvas(table).then((canvas) => {
+      //   const imgData = canvas.toDataURL("image/png");
+      //   // eslint-disable-next-line new-cap
+      //   const doc = new jsPDF();
+      //   doc.addImage(imgData, "PNG", 10, 10, 200, 200);
+      //   // doc.save("data.pdf");
+      // });
+      // eslint-disable-next-line new-cap
+      const doc = new jsPDF();
+      doc.addFileToVFS("nanum.ttf", font);
+      doc.addFont("nanum.ttf", "nanum", "normal");
+      doc.setFont("nanum", "normal");
+      autoTable(doc, {
+        html: "#my-table",
+        styles: {
+          font: "nanum",
+        },
       });
+      doc.save("data.pdf");
     }
   }, []);
 
