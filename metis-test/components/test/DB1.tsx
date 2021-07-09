@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { useDB1 } from "../../hooks/useDB1";
 import { useSelector } from "../../store";
@@ -23,7 +23,6 @@ const DB1: React.FC = () => {
   const [area, setArea] = useState(["all"]);
   const [age, setAge] = useState(["all"]);
 
-  const [series, setSeries] = useState<seriesType[]>([]);
   const options = {
     chart: {
       id: "test",
@@ -32,7 +31,7 @@ const DB1: React.FC = () => {
 
   const { status, data, error } = useDB1(gender, age, area, 1, product);
 
-  useEffect(() => {
+  const getSeries = useCallback(() => {
     if (status === "success" && data) {
       const newSeries: Array<seriesType> = [{ name: "data", data: [] }];
       for (let i = 0; i < data?.length; i++) {
@@ -40,9 +39,9 @@ const DB1: React.FC = () => {
         const y = data[i].DATA;
         newSeries[0].data.push({ x, y });
       }
-      setSeries(newSeries);
+      return newSeries;
     }
-  }, [status, data]);
+  }, [data, status]);
 
   return (
     <div className="w-full h-full space-y-10 overflow-hidden">
@@ -54,8 +53,13 @@ const DB1: React.FC = () => {
       {status === "loading" && <div>Loading...</div>}
       {status === "success" && data && data?.length > 1 && (
         <>
-          <Chart options={options} series={series} type="line" height={600} />
-          <p>asdfadsf</p>
+          <Chart
+            options={options}
+            series={getSeries()}
+            type="line"
+            height={600}
+          />
+          <p>asdfadsadsffada</p>
           <p>asdfadsf</p>
           <p>asdfadsf</p>
           <p>asdfadsf</p>

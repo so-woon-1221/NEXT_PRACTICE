@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import axios from "axios";
 import DB1 from "../components/test/DB1";
 import { useSelector } from "../store";
 import DB2 from "../components/test/DB2";
@@ -33,17 +32,5 @@ const TestPage = ({ data }) => {
     </>
   );
 };
-
-// export const getStaticProps = async () => {
-//   const data = await axios.get("http://localhost:8080/api/biTest1");
-//   return { props: { data: data.data } };
-// };
-//
-// export async function getStaticPaths() {
-//   return {
-//     paths: [{ params: { id: "menu2" } }],
-//     fallback: true,
-//   };
-// }
 
 export default TestPage;
