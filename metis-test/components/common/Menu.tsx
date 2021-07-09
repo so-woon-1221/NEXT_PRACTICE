@@ -26,7 +26,7 @@ const Menu = () => {
       >
         <div className="w-full md:w-64">
           <div
-            className="md:h-screen-64 md:flex-col flex flex-col w-full overflow-y-auto px-4 flex-wrap items-center "
+            className="md:h-screen-64 md:flex-col flex flex-col w-full overflow-y-auto px-4 flex-wrap items-center z-20"
             id="menu"
           >
             <div className="w-full flex-grow z-50">
@@ -41,7 +41,7 @@ const Menu = () => {
                   }}
                 />
               </div>
-              <div className="flex items-center justify-center md:w-full w-auto md:h-36 h-20 md:border-b border-gray-700 cursor-pointer">
+              <div className="flex items-center justify-center md:w-full w-auto md:h-36 h-20 md:border-b border-gray-700 cursor-pointer z-20">
                 <Link href="/">
                   <h1 className="font-extrabold text-4xl">LOGO</h1>
                 </Link>
@@ -188,13 +188,28 @@ const Menu = () => {
               </div>
             </div>
             <div
-              className="md:hidden absolute flex w-full bg-gray-200 py-3 top-8 -z-10"
+              className="md:hidden invisible absolute flex w-full bg-gray-200 py-3 top-8 -z-10 space-x-2 justify-center"
               id="top-menu"
             >
               <div>SELECT</div>
-              <div>MENU1</div>
-              <div>MENU1</div>
-              <div>MENU1</div>
+              <div>
+                <Link href="/menu1">
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <a>MENU1</a>
+                </Link>
+              </div>
+              <div>
+                <Link href="/menu2">
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <a>MENU2</a>
+                </Link>
+              </div>
+              <div>
+                <Link href="/menu3">
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <a>MENU3</a>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
