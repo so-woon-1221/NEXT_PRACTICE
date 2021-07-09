@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "cross-env ANALYZE=true NODE_ENV=production next build",
-    "start": "cross-env NODE_ENV=production next start -p 80",
+    "start": "cross-env NODE_ENV=production next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "@types/react-table": "^7.7.2",
     "apexcharts": "^3.27.1",
     "axios": "^0.21.1",
+    "cross-env": "^7.0.3",
     "html2canvas": "^1.0.0",
     "jspdf": "^2.3.1",
     "jspdf-autotable": "^3.5.15",
