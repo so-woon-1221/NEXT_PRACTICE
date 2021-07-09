@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useQuery } from "react-query";
+import axios from "../lib/api";
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import { Test } from "../types/test";
 
@@ -11,7 +11,7 @@ const getData = async (
   product: string,
 ): Promise<Test[]> => {
   const { data } = await axios.get(
-    `http://34.136.232.169:8080/api/METIS/MT1?gender=${gender}&age=${age}&area=${area}&type=${type}&product=${product}`,
+    `/api/METIS/MT1?gender=${gender}&age=${age}&area=${area}&type=${type}&product=${product}`,
   );
   return data;
 };

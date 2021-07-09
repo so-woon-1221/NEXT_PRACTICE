@@ -79,6 +79,12 @@ a {
     .w-200 {
       min-width: 470px;
       max-width: 1200px;
+      @apply mx-auto
+    }
+
+    .wrapper {
+      max-width: 768px;
+      @apply mx-auto
     }
   }
 }
