@@ -63,10 +63,10 @@ const DB2: React.FC = () => {
       id="my-table"
     >
       <thead>
-        {headerGroups.map((headerGroup: HeaderGroup<any>) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()} className="border py-5">
+        {headerGroups.map((headerGroup: HeaderGroup<any>, i) => (
+          <tr {...headerGroup.getHeaderGroupProps()} key={i}>
+            {headerGroup.headers.map((column, i) => (
+              <th {...column.getHeaderProps()} className="border py-5" key={i}>
                 {column.render("Header")}
               </th>
             ))}
@@ -77,10 +77,10 @@ const DB2: React.FC = () => {
         {rows.map((row, i) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
+            <tr {...row.getRowProps()} key={i}>
+              {row.cells.map((cell, i) => {
                 return (
-                  <td {...cell.getCellProps()} className="border py-5">
+                  <td {...cell.getCellProps()} className="border py-5" key={i}>
                     {cell.render("Cell")}
                   </td>
                 );
