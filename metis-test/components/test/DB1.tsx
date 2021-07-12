@@ -31,6 +31,7 @@ const DB1: React.FC = () => {
 
   const { status, data, error } = useDB1(gender, age, area, 1, product);
 
+  // eslint-disable-next-line consistent-return
   const getSeries = useCallback(() => {
     if (status === "success" && data) {
       const newSeries: Array<seriesType> = [{ name: "data", data: [] }];

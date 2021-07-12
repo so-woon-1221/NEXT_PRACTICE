@@ -53,6 +53,7 @@ module.exports = {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-plusplus": [2, { allowForLoopAfterthoughts: true }],
+    "no-nested-ternary": 0,
   },
   settings: {
     "import/resolver": { node: { extensions: [".js", ".jsx", ".ts", ".tsx"] } },
