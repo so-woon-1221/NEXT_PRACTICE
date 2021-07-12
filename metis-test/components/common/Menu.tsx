@@ -37,7 +37,7 @@ const Menu = () => {
                 />
               </div>
               <div className="flex items-center justify-center md:w-full w-auto md:h-36 h-20 md:border-b border-gray-700 cursor-pointer z-20">
-                <Link href="/">
+                <Link href="/" passHref>
                   <h1 className="font-extrabold text-4xl">LOGO</h1>
                 </Link>
               </div>

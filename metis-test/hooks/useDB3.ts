@@ -3,7 +3,6 @@ import axios from "../lib/api";
 
 const getData = async () => {
   const { data } = await axios.get("api/biTest1");
-  // const { data } = await axios.get("/api/apiTest");
   return data;
 };
 

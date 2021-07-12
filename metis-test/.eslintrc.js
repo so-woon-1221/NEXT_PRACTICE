@@ -54,6 +54,7 @@ module.exports = {
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-plusplus": [2, { allowForLoopAfterthoughts: true }],
     "no-nested-ternary": 0,
+    "no-anonymous-default-export": "off",
   },
   settings: {
     "import/resolver": { node: { extensions: [".js", ".jsx", ".ts", ".tsx"] } },

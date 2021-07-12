@@ -7,7 +7,7 @@ import DB2 from "../components/test/DB2";
 import DB3 from "../components/test/DB3";
 
 // @ts-ignore
-const TestPage = ({ data }) => {
+const TestPage = () => {
   const router = useRouter();
   const { query } = router;
   const { product } = useSelector((state) => state.common);
