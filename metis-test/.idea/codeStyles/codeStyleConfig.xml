@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <component name="ProjectCodeStyleConfiguration">
   <state>
     <option name="USE_PER_PROJECT_SETTINGS" value="true" />
   </state>
+=======
+<component name="ProjectCodeStyleConfiguration">
+  <state>
+    <option name="USE_PER_PROJECT_SETTINGS" value="true" />
+  </state>
+>>>>>>> 2f970772df76a0ec9e07cc175c39b1fd84a8b865
 </component>
