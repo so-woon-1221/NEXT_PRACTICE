@@ -5,10 +5,7 @@ import DB1 from "../components/test/DB1";
 import { useSelector } from "../store";
 import DB2 from "../components/test/DB2";
 import DB3 from "../components/test/DB3";
-<<<<<<< HEAD
 import DB4 from "../components/test/DB4";
-=======
->>>>>>> 2f970772df76a0ec9e07cc175c39b1fd84a8b865
 
 // @ts-ignore
 const TestPage = () => {
@@ -30,10 +27,7 @@ const TestPage = () => {
             {query.id === "menu1" && <DB1 />}
             {query.id === "menu2" && <DB2 />}
             {query.id === "menu3" && <DB3 />}
-<<<<<<< HEAD
             {query.id === "menu4" && <DB4/>}
-=======
->>>>>>> 2f970772df76a0ec9e07cc175c39b1fd84a8b865
           </div>
         </div>
       </div>
