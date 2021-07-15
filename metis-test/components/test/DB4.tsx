@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import * as d3 from "d3";
-import html2canvas from "html2canvas";
 import { useDB1 } from "../../hooks/useDB1";
 import Gender from "../filter/Gender";
 import Area from "../filter/Area";
