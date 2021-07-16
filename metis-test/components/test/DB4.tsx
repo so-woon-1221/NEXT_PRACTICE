@@ -14,8 +14,6 @@ const DB4 = () => {
   const [age, setAge] = useState(["all"]);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
-  const [newData, setNewData] = useState();
-  const [names, setNames] = useState();
 
   const { status, data, error } = useDB1(gender, age, area, 1, "클렌징");
 
@@ -89,6 +87,7 @@ const DB4 = () => {
       d3.selectAll(".cell")
         .style("cursor", "pointer")
         .on("click", function (e, d) {
+          // eslint-disable-next-line no-underscore-dangle
           const data = e.target.__data__.replace(/ /g, "");
           const clickNode = d3.selectAll(`.a${data}`);
           clickNode.classed("clickNode", !clickNode.classed("clickNode"));
@@ -113,16 +112,15 @@ const DB4 = () => {
       const min = Number(d3.min(data.map((d) => d.DATA)));
       const y = d3
         .scaleLinear()
-        // @ts-ignore
         .domain([max + max / 20, min - min / 20])
         .range([0, height - 120]);
 
       const xAxis = svg
         .select("#xAxis")
         .attr("transform", `translate(0, ${height - 120})`)
-        .transition()
-        // @ts-ignore
-        .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%Y'%m")));
+        .transition();
+      // @ts-ignore
+      xAxis.call(d3.axisBottom(x));
       const yAxis = svg
         .select("#yAxis")
         .attr("transform", "translate(80,0)")
@@ -185,8 +183,25 @@ const DB4 = () => {
         .attr("cx", (d) => x(getDate(d.x)))
         .attr("cy", (d) => y(+d.y))
         .attr("r", 5);
+
+      // 줌 //////////////////////////////////////////////////////////////////////////////////////
+      const updateChart = (e: d3.D3ZoomEvent<any, any>) => {
+        const newX = e.transform.rescaleX(x);
+        // @ts-ignore
+        xAxis.call(d3.axisBottom(newX));
+      };
+      const zoom = d3
+        .zoom()
+        .scaleExtent([1, 10])
+        .extent([
+          [0, 0],
+          [width, height],
+        ])
+        .on("zoom", updateChart);
+
+      svg.call(zoom);
+      //////
     }
-    //////
   }, [status, data, width, height]);
 
   return (
@@ -194,13 +209,18 @@ const DB4 = () => {
       <Gender gender={gender} setGender={setGender} />
       <Area area={area} setArea={setArea} />
       <Age age={age} setAge={setAge} />
-      {/*@ts-ignore*/}
-      <div id="wrapper" className="w-full h-96 relative px-10" ref={wrapperRef}>
-        {status === "loading" && <div>로딩중</div>}
+      <div
+        // @ts-ignore
+        ref={wrapperRef}
+        id="wrapper"
+        className="w-full h-96 relative md:px-10"
+      >
         {status === "success" && data && data?.length > 1 && drawChart()}
-        <div className="absolute top-0 left-1/2 hidden" id="loading">
-          로딩 중
-        </div>
+        {status === "loading" && (
+          <div className="absolute top-0 left-1/2" id="loading">
+            로딩 중
+          </div>
+        )}
       </div>
     </>
   );
