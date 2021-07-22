@@ -4,7 +4,6 @@ import Age from "../filter/Age";
 import Gender from "../filter/Gender";
 import { useDB5 } from "../../hooks/useDB5";
 import useResizeObserver from "../../hooks/useResizeObserver";
-import { DB5 as dataType } from "../../types/DB5";
 
 const DB5: React.FC = () => {
   const [age, setAge] = useState(["all"]);

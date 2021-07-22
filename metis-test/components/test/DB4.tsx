@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import * as d3 from "d3";
 import { legendColor } from "d3-svg-legend";
+import domtoimage from "dom-to-image";
 import { useDB1 } from "../../hooks/useDB1";
 import Gender from "../filter/Gender";
 import Area from "../filter/Area";
@@ -72,8 +73,6 @@ const DB4 = () => {
     if (wrapper && status === "success" && data) {
       // 데이터 조작 ///////////////////////////////////////////////////////////////////////////////////
       const { newData, names } = getFilteredData(age, gender, area, data);
-      console.log(data);
-      console.log(newData);
       ////
 
       // svg 그리기 ////////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +82,10 @@ const DB4 = () => {
       } else {
         svg = d3.select(wrapper).append("svg");
         svg.attr("id", "chart");
-        svg.attr("width", "100%").attr("height", `${height + 30}`);
+        svg
+          .attr("width", "100%")
+          .attr("height", `${height + 10}`)
+          .attr("transform", "translate(0,20)");
         svg.append("g").attr("id", "xAxis");
         svg.append("g").attr("id", "yAxis");
         svg
@@ -259,6 +261,24 @@ const DB4 = () => {
     return getTableData();
   }, [getTableData]);
 
+  const downloadChart = async () => {
+    const chart = document.querySelector("#chart");
+    if (chart) {
+      const html: d3.BaseType | null = d3
+        .select("#chart")
+        .attr("version", 1.1)
+        .attr("xmlns", "http://www.w3.org/2000/svg")
+        .node();
+
+      domtoimage.toPng(html as HTMLElement).then((data) => {
+        const link = document.createElement("a");
+        link.href = data;
+        link.download = "chart.png";
+        link.click();
+      });
+    }
+  };
+
   return (
     <>
       <Gender gender={gender} setGender={setGender} isArray />
@@ -270,7 +290,18 @@ const DB4 = () => {
         id="wrapper"
         className="w-full h-96 relative md:px-10"
       >
-        {status === "success" && data && data?.length > 1 && drawChart()}
+        {status === "success" && data && data?.length > 1 && (
+          <button
+            type="button"
+            className="absolute top-4 right-16 border-2 p-2 border-blue-400"
+            onClick={() => downloadChart()}
+          >
+            다운로드
+          </button>
+        )}
+        {status === "success" && data && data?.length > 1 && drawChart() && (
+          <svg id="chart" />
+        )}
         {status === "success" && data && data?.length > 1 && (
           //@ts-ignore
           <Table columns={columns} data={tableData} />
