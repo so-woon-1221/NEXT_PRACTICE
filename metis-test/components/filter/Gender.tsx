@@ -1,5 +1,4 @@
 import React, { SetStateAction, useEffect } from "react";
-import { isAngle } from "html2canvas/dist/types/css/types/angle";
 import { findButtonAndFill } from "../../lib/findButtonAndFill";
 import { onChangeState } from "../../lib/onChangeState";
 

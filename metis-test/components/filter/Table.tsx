@@ -86,6 +86,10 @@ function Table({ columns, data }: tableType) {
     gotoPage(0);
   }, []);
 
+  useEffect(() => {
+    gotoPage(1);
+  }, [pageSize]);
+
   // Render the UI for your table
   return (
     <>
@@ -200,7 +204,7 @@ function Table({ columns, data }: tableType) {
             setPageSize(Number(e.target.value));
           }}
         >
-          {[5, 10, 20, data.length].map((pageSize) => (
+          {[5, 10, 20].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
@@ -212,6 +216,7 @@ function Table({ columns, data }: tableType) {
           type="button"
           onClick={() => {
             setPageSize(data.length);
+            gotoPage(0);
             printPDF().then(() => {
               setPageSize(pageSize);
             });

@@ -37,31 +37,6 @@ const DB4 = () => {
     }
   }, [dimensions]);
 
-  // eslint-disable-next-line consistent-return
-  const getTableData = useCallback(() => {
-    if (data && data.length > 1) {
-      const tableData = [];
-      for (let i = 0; i < data.length; i++) {
-        let name = "";
-        if (data[i].SIDO) {
-          name = data[i].SIDO!;
-        }
-        if (data[i].AGE) {
-          name += data[i].AGE;
-        }
-        if (data[i].GENDER) {
-          name += data[i].GENDER;
-        }
-        if (name === "") {
-          name = "구매금액";
-        }
-        tableData.push({ NAME: name, YM: data[i].YM, DATA: data[i].DATA });
-      }
-      console.log(tableData);
-      return tableData;
-    }
-  }, [data]);
-
   const wrapper = document.getElementById("wrapper");
   // eslint-disable-next-line consistent-return
   const drawChart = useCallback(() => {
@@ -256,6 +231,31 @@ const DB4 = () => {
       },
     ];
   }, []);
+
+  // eslint-disable-next-line consistent-return
+  const getTableData = useCallback(() => {
+    if (data && data.length > 1) {
+      const tableData = [];
+      for (let i = 0; i < data.length; i++) {
+        let name = "";
+        if (data[i].SIDO) {
+          name = data[i].SIDO!;
+        }
+        if (data[i].AGE) {
+          name += data[i].AGE;
+        }
+        if (data[i].GENDER) {
+          name += data[i].GENDER;
+        }
+        if (name === "") {
+          name = "구매금액";
+        }
+        tableData.push({ NAME: name, YM: data[i].YM, DATA: data[i].DATA });
+      }
+      console.log(tableData);
+      return tableData;
+    }
+  }, [data]);
 
   const tableData = useMemo(() => {
     return getTableData();
