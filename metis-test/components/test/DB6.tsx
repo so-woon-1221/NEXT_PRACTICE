@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import * as d3 from "d3";
-import { mode } from "d3";
 import { Pie, Summer } from "../../types/summer";
 import ChannelPie from "../channel/ChannelPie";
 import ChannelBar from "../channel/ChannelBar";
@@ -31,6 +30,19 @@ const DB6: React.FC = () => {
       }>
     >
   >(new Map());
+  const [genderData, setGenderData] = useState<
+    Array<{ brand: string; male: number; female: number }>
+  >([]);
+  const [ageData, setAgeData] = useState<
+    Array<{
+      brand: string;
+      20: number;
+      30: number;
+      40: number;
+      50: number;
+      60: number;
+    }>
+  >([]);
 
   useEffect(() => {
     // @ts-ignore
@@ -128,7 +140,8 @@ const DB6: React.FC = () => {
             brand = modelData.get(model)![i].BRAND_NAME;
           }
           tempData.push({
-            model: model.replace(/(\s*)/g, ""),
+            // model: model.replace(/(\s*)/g, ""),
+            model,
             customerAmount,
             amount,
             buyAmount,
@@ -142,6 +155,109 @@ const DB6: React.FC = () => {
       }
       setCustomerMap(customerMap);
       //////
+
+      // 채널별 구매자 - 성별 프로파일 //////////////////////////////////////////////////////////////////////////////////
+      const genderData: Array<{
+        brand: string;
+        male: number;
+        female: number;
+      }> = [];
+      const ageData: Array<{
+        brand: string;
+        20: number;
+        30: number;
+        40: number;
+        50: number;
+        60: number;
+      }> = [];
+      // eslint-disable-next-line no-restricted-syntax
+      for (const brand of brandList) {
+        const genderMap = d3.group(pie.get(brand)!, (d) => d.GENDER_CODE);
+        const male =
+          genderMap.get("M") === undefined ? 0 : genderMap.get("M")!.length;
+        const female =
+          genderMap.get("F") === undefined ? 0 : genderMap.get("F")!.length;
+        genderData.push({
+          brand,
+          male,
+          female,
+        });
+        const ageMap = d3.group(pie.get(brand)!, (d) => d.BIRTH_YEAR);
+        let age20 = 0;
+        let age30 = 0;
+        let age40 = 0;
+        let age50 = 0;
+        let age60 = 0;
+        // @ts-ignore
+        // eslint-disable-next-line no-restricted-syntax
+        for (let key of ageMap.keys()) {
+          key = key === undefined ? "no" : key;
+          const temp = ageMap.get(key);
+          if (temp) {
+            switch (key.charAt(0)) {
+              case "2":
+                age20 += temp.length;
+                break;
+              case "3":
+                age30 += temp.length;
+                break;
+              case "4":
+                age40 += temp.length;
+                break;
+              case "5":
+                age50 += temp.length;
+                break;
+              case "6":
+                age60 += temp.length;
+                break;
+              default:
+                break;
+            }
+          }
+        }
+        ageData.push({
+          brand,
+          20: age20,
+          30: age30,
+          40: age40,
+          50: age50,
+          60: age60,
+        });
+      }
+      setGenderData(
+        genderData
+          .sort((a, b) => b.female + b.male - a.female - a.male)
+          .slice(0, 5),
+      );
+      setAgeData(
+        ageData
+          .sort(
+            (a, b) =>
+              b["20"] +
+              b["30"] +
+              b["40"] +
+              b["50"] +
+              b["60"] -
+              a["50"] -
+              a["60"] -
+              a["40"] -
+              a["30"] -
+              a["20"],
+          )
+          .slice(0, 5)
+          .map((d) => {
+            const total = d["20"] + d["30"] + d["40"] + d["50"] + d["60"];
+            return {
+              brand: d.brand,
+              20: (d["20"] / total) * 100,
+              30: (d["30"] / total) * 100,
+              40: (d["40"] / total) * 100,
+              50: (d["50"] / total) * 100,
+              60: (d["60"] / total) * 100,
+            };
+          }),
+      );
+      ////
     });
   }, []);
 
@@ -179,8 +295,13 @@ const DB6: React.FC = () => {
             </>
           )}
         </div>
+      </div>
+      <div className="flex lg:space-x-4 flex-wrap lg:space-y-0 space-y-4">
         <div className="lg:w-half flex-grow bg-gray-200 rounded-xl h-100 w-full hover:shadow-xl relative">
-          <div>dd</div>
+          {genderData.length > 1 && <div>{genderData[0].male}</div>}
+        </div>
+        <div className="lg:w-half flex-grow bg-gray-200 rounded-xl h-100 w-full hover:shadow-xl relative">
+          {ageData.length > 1 && <div>{ageData[0]["20"]}</div>}
         </div>
       </div>
     </div>

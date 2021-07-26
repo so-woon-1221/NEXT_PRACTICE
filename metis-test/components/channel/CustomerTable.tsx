@@ -31,7 +31,6 @@ const CustomerTable: React.FC<Props> = ({ data, brandList }) => {
   };
 
   const tableData = useMemo(() => {
-    console.log(data.get(brand));
     return data.get(brand);
   }, [brand, data]);
 

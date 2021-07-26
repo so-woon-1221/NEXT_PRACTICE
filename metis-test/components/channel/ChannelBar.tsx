@@ -90,7 +90,7 @@ const ChannelBar: React.FC<Props> = ({ data, brandList, yearTotal }) => {
       const x = d3
         .scaleTime()
         .domain([getDate(min), getDate(max)])
-        .range([30, width - 30]);
+        .range([30, width - 20]);
       const xAxis = d3
         .select("#barX")
         .attr("transform", `translate(0,${height - 20})`)
