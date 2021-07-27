@@ -317,7 +317,13 @@ const DB6: React.FC = () => {
           )}
         </div>
         <div className="lg:w-half flex-grow bg-gray-200 rounded-xl h-100 w-full hover:shadow-xl relative">
-          {ageData.length > 1 && <div>{ageData[0]["20"]}</div>}
+          {ageData.length > 1 && (
+            <>
+              <span className="absolute top-4 left-4">
+                Top5 채널 구매자 프로파일 | 연령별
+              </span>
+            </>
+          )}
         </div>
       </div>
     </div>
