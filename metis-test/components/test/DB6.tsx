@@ -5,6 +5,7 @@ import ChannelPie from "../channel/ChannelPie";
 import ChannelBar from "../channel/ChannelBar";
 import CustomerTable from "../channel/CustomerTable";
 import GenderChart from "../channel/GenderChart";
+import AgeChart from "../channel/AgeChart";
 
 interface brand {
   id: number;
@@ -322,6 +323,7 @@ const DB6: React.FC = () => {
               <span className="absolute top-4 left-4">
                 Top5 채널 구매자 프로파일 | 연령별
               </span>
+              <AgeChart data={ageData} />
             </>
           )}
         </div>
