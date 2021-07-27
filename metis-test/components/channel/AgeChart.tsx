@@ -16,9 +16,12 @@ interface Props {
 
 const AgeChart: React.FC<Props> = ({ data }) => {
   const wrapperRef = useRef();
+  const legendRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
+  const legendDimensions = useResizeObserver(legendRef);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
+  const [legendWidth, setLegendWidth] = useState(0);
 
   useEffect(() => {
     if (dimensions) {
@@ -27,9 +30,14 @@ const AgeChart: React.FC<Props> = ({ data }) => {
       //@ts-ignore
       setHeight(dimensions.height);
     }
-  }, [dimensions]);
+    if (legendDimensions) {
+      // @ts-ignore
+      setLegendWidth(legendDimensions.width);
+    }
+  }, [dimensions, legendDimensions]);
 
   const stackedData = useMemo(() => {
+    // @ts-ignore
     return d3.stack().keys(["20", "30", "40", "50", "60"])(data);
   }, [data]);
 
@@ -49,10 +57,12 @@ const AgeChart: React.FC<Props> = ({ data }) => {
 
     d3.select("#channel-age-chart-x")
       .attr("transform", `translate(0, ${height - 30})`)
+      // @ts-ignore
       .call(d3.axisBottom(x));
 
     d3.select("#channel-age-chart-y")
       .attr("transform", "translate(40, 0)")
+      // @ts-ignore
       .call(d3.axisLeft(y));
 
     const color = d3
@@ -68,7 +78,8 @@ const AgeChart: React.FC<Props> = ({ data }) => {
       .scale(color);
     svg
       .select("#channel-age-chart-legend")
-      .attr("transform", `translate(${width - 300}, 16)`)
+      .attr("transform", `translate(${width - legendWidth - 30}, 16)`)
+      // @ts-ignore
       .call(legendLinear);
 
     svg.selectAll(".ageRect").remove();
@@ -77,6 +88,7 @@ const AgeChart: React.FC<Props> = ({ data }) => {
       .selectAll(".ageRect")
       .data(stackedData)
       .join("g")
+      // @ts-ignore
       .attr("fill", (d) => {
         return color(d.key);
       })
@@ -86,11 +98,11 @@ const AgeChart: React.FC<Props> = ({ data }) => {
       .join("rect")
       .attr("class", "ageRect")
       .attr("x", (d) => x(d[0]))
-      .attr("y", (d) => y(d.data.brand))
+      .attr("y", (d) => y(String(d.data.brand)))
       .attr("height", (d) => y.bandwidth())
       .transition()
       .attr("width", (d) => x(d[1]) - x(d[0]));
-  }, [width, height, stackedData]);
+  }, [width, height, stackedData, data, legendWidth]);
 
   return (
     //@ts-ignore
@@ -98,7 +110,8 @@ const AgeChart: React.FC<Props> = ({ data }) => {
       <svg id="channel-age-chart">
         <g id="channel-age-chart-x" />
         <g id="channel-age-chart-y" />
-        <g id="channel-age-chart-legend" />
+        {/*@ts-ignore*/}
+        <g id="channel-age-chart-legend" ref={legendRef} />
       </svg>
     </div>
   );
