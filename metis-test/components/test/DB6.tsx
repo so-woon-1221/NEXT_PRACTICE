@@ -4,6 +4,7 @@ import { Pie, Summer } from "../../types/summer";
 import ChannelPie from "../channel/ChannelPie";
 import ChannelBar from "../channel/ChannelBar";
 import CustomerTable from "../channel/CustomerTable";
+import GenderChart from "../channel/GenderChart";
 
 interface brand {
   id: number;
@@ -227,7 +228,15 @@ const DB6: React.FC = () => {
       setGenderData(
         genderData
           .sort((a, b) => b.female + b.male - a.female - a.male)
-          .slice(0, 5),
+          .slice(0, 5)
+          .map((d) => {
+            const total = d.female + d.male;
+            return {
+              brand: d.brand,
+              male: (d.male / total) * 100,
+              female: (d.female / total) * 100,
+            };
+          }),
       );
       setAgeData(
         ageData
@@ -298,7 +307,14 @@ const DB6: React.FC = () => {
       </div>
       <div className="flex lg:space-x-4 flex-wrap lg:space-y-0 space-y-4">
         <div className="lg:w-half flex-grow bg-gray-200 rounded-xl h-100 w-full hover:shadow-xl relative">
-          {genderData.length > 1 && <div>{genderData[0].male}</div>}
+          {genderData.length > 1 && (
+            <>
+              <span className="absolute top-4 left-4">
+                Top5 채널 구매자 프로파일 | 성별
+              </span>
+              <GenderChart data={genderData} />
+            </>
+          )}
         </div>
         <div className="lg:w-half flex-grow bg-gray-200 rounded-xl h-100 w-full hover:shadow-xl relative">
           {ageData.length > 1 && <div>{ageData[0]["20"]}</div>}
